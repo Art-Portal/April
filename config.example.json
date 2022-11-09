@@ -1,0 +1,11 @@
+{
+    "token" : "NeverGonneGiveYouUp",
+    "clientId" : "Bot's ID",
+    "guildId" : "Working Guild ID",
+    "generalChannelId" : "Main Guild Channel ID",
+    "rulesChannelId" : "Rules Channel ID",
+    "rolesChannelId" : "Roles Channel ID",
+    "devId" : "Developer's ID",
+    "sanctionChannelId": "Saanctions Channel's ID",
+    "progressBar": "Emojis/Text to show when loading something"
+} 
