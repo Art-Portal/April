@@ -13,7 +13,6 @@ const client = new Client({
     ]
 });
 
-
 const sequelize = new Sequelize('database', 'user', 'password', {
 	host: 'localhost',
 	dialect: 'sqlite',
@@ -39,6 +38,7 @@ const modlog = sequelize.define('sanctions', {
 	timestamp: Sequelize.STRING,
 	moderatorid: Sequelize.STRING
 });
+
 client.database = {
 	sequelize: sequelize,
 	modlog: modlog,
