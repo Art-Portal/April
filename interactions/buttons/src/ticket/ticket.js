@@ -1,7 +1,7 @@
 const { PermissionFlagsBits, ButtonBuilder, ButtonStyle, ActionRowBuilder, EmbedBuilder } = require('discord.js')
 
 module.exports = {
-    async execute(interaction) {
+    async execute(interaction, client) {
         await interaction.deferUpdate({ ephemeral: true });
         switch (interaction.customId.replace("ticket_","").split("-")[0]) {
             case 'close':
@@ -141,7 +141,8 @@ module.exports = {
                             .setEmoji("🔒")
                             .setCustomId(`ticket_close-${interaction.customId.replace("ticket_","").split("-")[1]}`),
                     ]);
-                await interaction.channel.setName("🟢"+interaction.channel.name);
+                const artist = await client.database.artists.findOne({ where: { name: interaction.user.id } });
+                await interaction.channel.setName((artist ? artist.emoji :"🟢")+interaction.channel.name);
                 await interaction.followUp({ embeds: [
                     new EmbedBuilder()
                     .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.avatarURL() })

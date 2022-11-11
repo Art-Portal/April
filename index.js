@@ -39,13 +39,20 @@ const modlog = sequelize.define('sanctions', {
 	moderatorid: Sequelize.STRING
 });
 
+const artists = sequelize.define('artists', {
+	name: Sequelize.STRING,//id
+	emoji: Sequelize.STRING,
+});
+
 client.database = {
 	sequelize: sequelize,
 	modlog: modlog,
 	blacklistdb: blacklistdb,
+	artists: artists,
 };
 blacklistdb.sync();
 modlog.sync();
+artists.sync();
 
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
