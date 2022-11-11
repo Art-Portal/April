@@ -7,5 +7,9 @@
     "rolesChannelId" : "Roles Channel ID",
     "devId" : "Developer's ID",
     "sanctionChannelId": "Saanctions Channel's ID",
-    "progressBar": "Emojis/Text to show when loading something"
+    "progressBar": "Emojis/Text to show when loading something",
+    "sequelizeCredentials": {
+        "username": "user",
+        "password": "password"
+    }
 } 

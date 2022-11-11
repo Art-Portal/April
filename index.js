@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Sequelize = require('sequelize');
 const { Client, GatewayIntentBits } = require("discord.js");
-const { token } = require('./config.json');
+const { token, sequelizeCredentials } = require('./config.json');
 const { deploy_commands } = require('./functions.js');
 
 const client = new Client({
@@ -13,7 +13,7 @@ const client = new Client({
     ]
 });
 
-const sequelize = new Sequelize('database', 'user', 'password', {
+const sequelize = new Sequelize('database', sequelizeCredentials.username, sequelizeCredentials.password, {
 	host: 'localhost',
 	dialect: 'sqlite',
 	logging: false,
