@@ -1,7 +1,7 @@
 const { ActionRowBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, PermissionFlagsBits, ChannelType } = require("discord.js");
 
 module.exports = {
-    async execute(interaction, client) {
+    async execute(interaction) {
         switch (interaction.customId.split('-')[1]) {
             case "graphism":
                 const commandType = cmdTypeDict[interaction.values[0].replace("ticket_", "")];

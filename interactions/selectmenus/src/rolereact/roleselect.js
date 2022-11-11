@@ -1,7 +1,5 @@
-const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
-
 module.exports = {
-    async execute(interaction, client) {
+    async execute(interaction) {
         await interaction.deferUpdate();
         await interaction.guild.roles.fetch();
         let currentrole;
