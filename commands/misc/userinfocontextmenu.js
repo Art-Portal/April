@@ -4,6 +4,7 @@ module.exports = {
 	data: new ContextMenuCommandBuilder()
 		.setName('UserInfo')
 		.setType(2),
+		
 	async execute(interaction, client) {
 		const user = interaction.targetUser;
 		const member = interaction.targetMember;

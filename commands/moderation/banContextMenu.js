@@ -1,5 +1,4 @@
 const { ContextMenuCommandBuilder, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
-const { sanctionChannelId } = require('../../config.json');
 
 module.exports = {
 	data: new ContextMenuCommandBuilder()

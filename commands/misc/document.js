@@ -1,7 +1,6 @@
 const { SlashCommandBuilder, SelectMenuBuilder, ActionRowBuilder } = require('discord.js');
 
 module.exports = {
-
     data: new SlashCommandBuilder()
         .setName('documents')
         .setDescription('Afficher des documents')

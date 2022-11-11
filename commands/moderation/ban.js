@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, ButtonBuilder, ActionRowBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { sanctionChannelId } = require('../../config.json');
 
 module.exports = {
@@ -21,8 +20,6 @@ module.exports = {
 					.setRequired(true)),
 
     async execute(interaction, client) {
-        // if(!interaction.member.permissions.has(0x4)) return interaction.reply({content: `Vous n'avez pas la permisssion \`BAN_MEMBERS\` pour effectuer cette commande.`, ephemeral: true});
-
         const user = interaction.options.getUser('user');
 		const member = interaction.options.getMember('user');
         const reason = interaction.options.getString('reason');
