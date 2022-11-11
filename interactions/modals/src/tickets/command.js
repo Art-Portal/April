@@ -69,7 +69,7 @@ module.exports = {
         await interaction.guild.channels.create({
             name: `${remuneration ? "rémunéré": "bénévole"} - ` + interaction.user.username,
             type: ChannelType.GuildText,
-            parent: '780559502105378836',
+            parent: remuneration ? "1040706105321467934" : "780559502105378836",
             permissionOverwrites: [
 	    		{
                 	id: interaction.user.id,
