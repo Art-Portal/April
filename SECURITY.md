@@ -4,8 +4,15 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 4.5.0   | :white_check_mark: |
+| 4.5.0 (current) | :white_check_mark: |
+| 4.5.1-beta (upcoming) | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
-Contact CoolMan#4094 on discord !
+### Please follow these steps first:
+
+- [ ] Did you test this vulnerability ? If so, how do you "use" it ?
+- [ ] Is it a supported version ?
+- [ ] Did you find where the vulnerability came from ? (Dependency / Bot's code / ...)
+### Then, DM me on discord (@CoolMan#4094) and describe the issue
+
