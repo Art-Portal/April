@@ -28,6 +28,6 @@
     "@discordjs/rest": "^1.0.0",
     "discord.js": "^14.6.0",
     "sequelize": "^6.21.3",
-    "sqlite3": "^5.0.10"
+    "sqlite3": "^5.1.2"
   }
 }
