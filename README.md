@@ -8,4 +8,19 @@ Pour installer le bot, vous aurez simplement **besoin d'effectuer cette simple c
 ```
 npm install
 ```
-![portalgirl-cool](https://user-images.githubusercontent.com/65647523/167270738-0371e27d-d071-44b7-8560-9e94b45d22a2.png)
+
+<a href="https://github.com/Art-Portal/April/actions/workflows/codeql.yml">
+    <img src="https://github.com/Art-Portal/April/actions/workflows/codeql.yml/badge.svg"/>
+</a>
+<a href="https://github.com/Art-Portal/April">
+    <img src="https://badgen.net/github/stars/Art-Portal/April"/>
+</a>
+<a href="https://github.com/Art-Portal/April/releases">
+    <img src="https://badgen.net/github/release/Art-Portal/April"/>
+</a>
+<a href="https://github.com/Art-Portal/April/issues">
+    <img src="https://badgen.net/github/open-issues/Art-Portal/April"/>
+</a>
+<a href="https://github.com/apps/dependabot">
+    <img src="https://badgen.net/github/dependabot/Art-Portal/April"/>
+</a>
