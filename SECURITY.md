@@ -1,6 +1,6 @@
 # Security Policy
 
-## Supported Versions
+## Supported Versions (On which bugs will be fixed)
 
 | Version | Supported          |
 | ------- | ------------------ |
