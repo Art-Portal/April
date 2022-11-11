@@ -181,62 +181,6 @@ module.exports = {
                 ] });
                 await interaction.editReply({ components: [ticketRowUntaken] });
                 break;
-
-            case 'takeTicket':
-                if(!interaction.member.roles.cache.has('778016554066640896')) return interaction.reply({ content: "Vous n'avez pas la permission de faire cela !", ephemeral: true });
-                const staffticketRowTaken = new ActionRowBuilder()
-                    .addComponents([
-                        new ButtonBuilder()
-                            .setLabel("Annuler la prise en charge")
-                            .setStyle(ButtonStyle.Danger)
-                            .setEmoji("❌")
-                            .setCustomId(`ticket_cancelTakenTicket-${interaction.user.id}-${interaction.customId.replace("ticket_","").split("-")[1]}`),
-                        new ButtonBuilder()
-                            .setLabel("Fermer le ticket")
-                            .setStyle(ButtonStyle.Danger)
-                            .setEmoji("🔒")
-                            .setCustomId(`ticket_close-${interaction.customId.replace("ticket_","").split("-")[1]}`),
-                    ]);
-                await interaction.channel.setName("🟢"+interaction.channel.name);
-                await interaction.followUp({ embeds: [
-                    new EmbedBuilder()
-                        .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.avatarURL() })
-                        .setDescription(`<@${interaction.user.id}> prend en charge le ticket !`)
-                        .setColor('#34f213')
-                ] });
-                await interaction.editReply({ components: [staffticketRowTaken] });
-                break;
-                
-            case 'cancelTakenTicket':
-                let untakeTicketMessage;
-                if (interaction.user.id == interaction.customId.replace("ticket_","").split("-")[1]) untakeTicketMessage = "(Annulation par le staff)"
-                else if (interaction.member.permissions.has(PermissionFlagsBits.Administrator)) untakeTicketMessage = "(Annulation par un administrateur)"
-                else{
-                    await interaction.editReply();
-                    return interaction.followUp({ content: `Vous n'avez pas la permission de faire ça !`, ephemeral: true });
-                }
-                const staffticketRowUntaken = new ActionRowBuilder()
-                    .addComponents([
-                        new ButtonBuilder()
-                            .setLabel("Prendre en charge")
-                            .setStyle(ButtonStyle.Success)
-                            .setEmoji("✏")
-                            .setCustomId(`ticket_takeTicket-${interaction.customId.replace("ticket_","").split("-")[2]}`),
-                        new ButtonBuilder()
-                            .setLabel("Fermer le ticket")
-                            .setStyle(ButtonStyle.Danger)
-                            .setEmoji("🔒")
-                            .setCustomId(`ticket_close-${interaction.customId.replace("ticket_","").split("-")[2]}`),
-                    ]);
-                await interaction.channel.setName(interaction.channel.name.replace("🟢",""));
-                await interaction.followUp({ embeds: [
-                    new EmbedBuilder()
-                    .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.avatarURL() })
-                    .setDescription(`<@${interaction.user.id}> ne prend plus en charge le ticket ! ${untakeTicketMessage}`)
-                    .setColor('#ce0808')
-                ] });
-                await interaction.editReply({ components: [staffticketRowUntaken] });
-                break;
         }
     }
 }

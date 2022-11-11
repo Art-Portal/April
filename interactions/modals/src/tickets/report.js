@@ -34,11 +34,6 @@ module.exports = {
             var btnrowTicket = new ActionRowBuilder()
                 .addComponents([
                     new ButtonBuilder()
-                        .setLabel("Prendre en charge")
-                        .setStyle(ButtonStyle.Success)
-                        .setEmoji("✏")
-                        .setCustomId(`ticket_takeTicket-${interaction.user.id}`),
-                    new ButtonBuilder()
                     .setLabel("Fermer le ticket")
                     .setStyle(ButtonStyle.Danger)
                     .setEmoji("🔒")
