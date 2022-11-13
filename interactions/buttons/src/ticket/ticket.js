@@ -142,7 +142,7 @@ module.exports = {
                             .setCustomId(`ticket_close-${interaction.customId.replace("ticket_","").split("-")[1]}`),
                     ]);
                 const artist = await client.database.artists.findOne({ where: { name: interaction.user.id } });
-                await interaction.channel.setName((artist ? artist.emoji :"🟢")+interaction.channel.name);
+                interaction.channel.setName((artist ? artist.emoji :"🟢")+interaction.channel.name);
                 await interaction.followUp({ embeds: [
                     new EmbedBuilder()
                     .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.avatarURL() })
@@ -174,11 +174,11 @@ module.exports = {
                             .setCustomId(`ticket_close-${interaction.customId.replace("ticket_","").split("-")[2]}`),
                     ]);
                 const artistUntake = await client.database.artists.findOne({ where: { name: interaction.user.id } });
-                await interaction.channel.setName(interaction.channel.name.replace(artistUntake ? artistUntake.emoji :"🟢",""));
+                interaction.channel.setName(interaction.channel.name.replace(artistUntake ? artistUntake.emoji :"🟢",""));
                 await interaction.followUp({ embeds: [
                     new EmbedBuilder()
                     .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.avatarURL() })
-                    .setDescription(`<@${interaction.user.id}> ne prend plus en charge le ticket ! ${untakeMessage}`)
+                    .setDescription(`<@${interaction.customId.replace("ticket_","").split("-")[1]}> ne prend plus en charge le ticket ! ${untakeMessage}`)
                     .setColor('#ce0808')
                 ] });
                 await interaction.editReply({ components: [ticketRowUntaken] });
