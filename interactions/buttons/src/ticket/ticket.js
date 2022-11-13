@@ -173,7 +173,8 @@ module.exports = {
                             .setEmoji("🔒")
                             .setCustomId(`ticket_close-${interaction.customId.replace("ticket_","").split("-")[2]}`),
                     ]);
-                await interaction.channel.setName(interaction.channel.name.replace("🟢",""));
+                const artistUntake = await client.database.artists.findOne({ where: { name: interaction.user.id } });
+                await interaction.channel.setName(interaction.channel.name.replace(artistUntake ? artistUntake.emoji :"🟢",""));
                 await interaction.followUp({ embeds: [
                     new EmbedBuilder()
                     .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.avatarURL() })
