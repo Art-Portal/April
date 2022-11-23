@@ -91,7 +91,7 @@ module.exports = {
                         allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.ManageChannels],
                     },
                 ]);
-                if (interaction.channel.parentId == '780559502105378836'){
+                if (['1040706105321467934', '780559502105378836'].includes(interaction.channel.parentId)){
                     await interaction.channel.permissionOverwrites.create('780007193688801321', {
                         ViewChannel: true
                     });
