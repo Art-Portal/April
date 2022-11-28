@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/Art-Portal/April#readme",
   "dependencies": {
-    "@discordjs/rest": "^1.0.0",
+    "@discordjs/rest": "^1.4.0",
     "discord.js": "^14.6.0",
     "sequelize": "^6.25.5",
     "sqlite3": "^5.1.2"
