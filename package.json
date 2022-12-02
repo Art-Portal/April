@@ -27,7 +27,7 @@
   "dependencies": {
     "@discordjs/rest": "^1.0.0",
     "discord.js": "^14.7.0",
-    "sequelize": "^6.25.5",
+    "sequelize": "^6.26.0",
     "sqlite3": "^5.1.2"
   }
 }
