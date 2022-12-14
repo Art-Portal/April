@@ -89,5 +89,5 @@ module.exports = {
                 SetupMod.execute(interaction);
                 break;
         }
-	}
+    }
 };
