@@ -18,11 +18,11 @@ module.exports = {
         }
 	}
 };
-let baseembed = new EmbedBuilder()
+const baseembed = new EmbedBuilder()
     .setTitle("Constructeur d'embed")
     .setDescription("Bienvenue sur le constructeur interactif d'embed !\nChoisissez vos options (seule la description et le titre sont requis).\nUn fois fini, munissez-vous de l'id du salon dans lequel vous souhaitez envoyer le message et cliquez sur \"Envoyer\"");
 
-let row1 = new ActionRowBuilder()
+const row1 = new ActionRowBuilder()
     .addComponents([
         new ButtonBuilder()
         .setCustomId("embedbuilder_create-author")
@@ -45,7 +45,7 @@ let row1 = new ActionRowBuilder()
         .setLabel("Couleur de l'embed")
         .setStyle(ButtonStyle.Secondary)
     ]);
-let row2 = new ActionRowBuilder()
+const row2 = new ActionRowBuilder()
     .addComponents([
         new ButtonBuilder()
         .setCustomId("embedbuilder_create-thumbnail")
@@ -60,7 +60,7 @@ let row2 = new ActionRowBuilder()
         .setStyle(ButtonStyle.Secondary)
         .setLabel("Ajouter un message à l'embed")
     ]);
-let row3 = new ActionRowBuilder()
+const row3 = new ActionRowBuilder()
     .addComponents([
         new ButtonBuilder()
             .setCustomId("embedbuilder_create-post")
@@ -79,4 +79,4 @@ let row3 = new ActionRowBuilder()
             .setStyle(ButtonStyle.Danger)
             .setLabel("Envoyer dans forum")
     ]);
-let embedbuilderrows = [row1, row2, row3];
+const embedbuilderrows = [row1, row2, row3];
