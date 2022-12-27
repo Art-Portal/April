@@ -4,10 +4,10 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('documents')
         .setDescription('Afficher des documents')
-		.addSubcommand(subcommand =>
-			subcommand
-				.setName('sanctions')
-				.setDescription('Afficher les documents des sanctions')),
+        .addSubcommand(subcommand =>
+            subcommand
+            .setName('sanctions')
+            .setDescription('Afficher les documents des sanctions')),
 
     async execute(interaction) {
         switch (interaction.options.getSubcommand()) {
@@ -16,7 +16,6 @@ module.exports = {
                 break;
         }
     }
-  
 };
 
 
