@@ -35,11 +35,6 @@ module.exports = {
                             emoji: '🎆'
                         },
                         {
-                            label: 'Video/Video',
-                            value: 'ticket_video',
-                            emoji: '🎞'
-                        },
-                        {
                             label: 'Overlay/Overlay',
                             value: 'ticket_overlay',
                             emoji: '🎥'

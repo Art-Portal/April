@@ -56,42 +56,42 @@ module.exports = {
 					},
 					{ 
 						name: "・Description・",
-						value: `${description}`,
+						value: `\`\`\`${description}\`\`\``,
 						inline: false
 					},
 				);
 			await channel.send({embeds:[commandtosendEMBED]}).then(msg => msg.pin());
             if (invite.includes("discord.gg/")){
                 await interaction.client.fetchInvite(invite)
-                .then(async invite => {
+                .then(async Sinvite => {
                     const servinfoEMBED = new EmbedBuilder()
-                    .setTitle(invite.guild.name)
+                    .setTitle(Sinvite.guild.name)
                     .setFields([
                         {
                             name: "Créé :",
-                            value : `<t:${Math.round(invite.guild.createdTimestamp/1000)}>`,
+                            value : `<t:${Math.round(Sinvite.guild.createdTimestamp/1000)}>`,
                         },
                         {
                             name: "Membres :",
-                            value : invite.memberCount.toString(),
+                            value : Sinvite.memberCount.toString(),
                         },
                         {
                             name: "Description :",
-                            value : invite.guild.description || "Aucune",
+                            value : Sinvite.guild.description || "Aucune",
                         },
                         {
                             name: "ID :",
-                            value : invite.guild.id.toString(),
+                            value : Sinvite.guild.id.toString(),
                         },
                         {
                             name: "Nombre de boosts :",
-                            value: invite.guild.premiumSubscriptionCount.toString()
+                            value: Sinvite.guild.premiumSubscriptionCount.toString()
                         }
                     ])
-                    .setImage(invite.guild.bannerURL())
-                    .setThumbnail(invite.guild.iconURL({ size: 1024 }))
-                    if (invite.guild.partnered) servinfoEMBED.setDescription("<:Z_UtilePartner:962499238783242271>")
-                    await channel.send( { embeds: [servinfoEMBED] } )
+                    .setImage(Sinvite.guild.bannerURL())
+                    .setThumbnail(Sinvite.guild.iconURL({ size: 1024 }))
+                    if (Sinvite.guild.partnered) servinfoEMBED.setDescription("<:Z_UtilePartner:962499238783242271>")
+                    await channel.send( { content: invite, embeds: [servinfoEMBED] } )
                 }).catch(error => {
                     console.error(error)
                 })
