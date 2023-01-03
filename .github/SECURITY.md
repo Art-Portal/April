@@ -4,8 +4,9 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 4.5.0 (current) | :white_check_mark: |
-| 4.5.1-beta (upcoming) | :white_check_mark: |
+| 4.5.0 (past) | :white_check_mark: |
+| 4.5.1 (current) | :white_check_mark: |
+| 4.5.2-beta (upcoming) | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
