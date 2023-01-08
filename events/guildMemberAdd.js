@@ -22,5 +22,5 @@ module.exports = {
 const welcomemessage = 
 `☆ Bienvenue <@[memberid]> ☆
 
-Je t'invite à aller lire le <#${rulesChannelId}> ainsi que de prendre tes rôles dans <#${rolesChannelId}>
+Je t'invite à aller lire le <#${rulesChannelId}> ainsi que de prendre tes rôles dans <id:customize>
 Nous espérons que tu passera un bon moment sur Art' Portal ! ^^`;
