@@ -1,4 +1,4 @@
-const { ButtonStyle, EmbedBuilder, SelectMenuBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js')
+const { ButtonStyle, EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js')
 
 module.exports = {
     async execute(interaction, client) {
@@ -151,7 +151,7 @@ module.exports = {
 
 const sanctionembedrow = new ActionRowBuilder()
     .addComponents(
-        new SelectMenuBuilder()
+        new StringSelectMenuBuilder()
             .setCustomId('document_sanctions')
             .setPlaceholder('Navigateur')
             .addOptions([
@@ -195,7 +195,7 @@ const sanctionembedrow = new ActionRowBuilder()
     
 const albumphotoembedrow = new ActionRowBuilder()
     .addComponents(
-        new SelectMenuBuilder()
+        new StringSelectMenuBuilder()
             .setCustomId('document_albumphoto')
             .setPlaceholder('Navigateur')
             .addOptions([

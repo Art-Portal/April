@@ -1,4 +1,4 @@
-const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
 module.exports = {
     async execute(interaction) {
@@ -212,7 +212,7 @@ const notifroles = [
 
 const rolegenrerow = new ActionRowBuilder()
     .addComponents(
-        new SelectMenuBuilder()
+        new StringSelectMenuBuilder()
             .setCustomId('roleselect_genre')
             .setPlaceholder('Choisissez votre pronom / Choose your pronoun')
             .addOptions([
@@ -236,7 +236,7 @@ const rolegenrerow = new ActionRowBuilder()
 
 const rolecolorrow = new ActionRowBuilder()
     .addComponents(
-        new SelectMenuBuilder()
+        new StringSelectMenuBuilder()
             .setCustomId('roleselect_color')
             .setPlaceholder('Choisissez une couleur / Choose a color')
             .addOptions([
@@ -279,7 +279,7 @@ const rolecolorrow = new ActionRowBuilder()
     );
 const rolehobbiesrow = new ActionRowBuilder()
     .addComponents(
-        new SelectMenuBuilder()
+        new StringSelectMenuBuilder()
             .setCustomId('roleselect_hobbies')
             .setPlaceholder('Choisissez vos hobbies / Choose your hobbies')
             .setMaxValues(8)
@@ -328,7 +328,7 @@ const rolehobbiesrow = new ActionRowBuilder()
     );
 const rolepingsrow = new ActionRowBuilder()
     .addComponents(
-        new SelectMenuBuilder()
+        new StringSelectMenuBuilder()
             .setCustomId('roleselect_pings')
             .setPlaceholder('Choisissez vos notifications / Choose your pings')
             .setMaxValues(7)

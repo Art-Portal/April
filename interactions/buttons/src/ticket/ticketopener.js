@@ -1,11 +1,11 @@
-const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js')
+const { ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js')
 
 module.exports = {
     async execute(interaction) {
         await interaction.deferReply({ ephemeral: true });
         const ticketgraphismtyperow2 = new ActionRowBuilder()
             .addComponents(
-                new SelectMenuBuilder()
+                new StringSelectMenuBuilder()
                     .setCustomId(`ticket_create-graphism-${interaction.customId.replace('ticketopener_', '')}`)
                     .setPlaceholder('Choisissez le type de graphisme.')
                     .addOptions([

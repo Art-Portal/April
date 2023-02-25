@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, SelectMenuBuilder, ActionRowBuilder } = require('discord.js');
+const { SlashCommandBuilder, StringSelectMenuBuilder, ActionRowBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -21,7 +21,7 @@ module.exports = {
 
 const sanctionembedrow = new ActionRowBuilder()
     .addComponents(
-        new SelectMenuBuilder()
+        new StringSelectMenuBuilder()
             .setCustomId('document_sanctions')
             .setPlaceholder('Navigateur')
             .addOptions([

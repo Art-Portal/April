@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ActionRowBuilder, SelectMenuBuilder, ChannelType } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ActionRowBuilder, StringSelectMenuBuilder, ChannelType } = require('discord.js');
 const SetupTickets = require('./setupcommands/tickets.js');
 const SetupPanel = require('./setupcommands/panels.js');
 const SetupMod = require('./setupcommands/moderation.js');

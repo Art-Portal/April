@@ -1,4 +1,4 @@
-const { EmbedBuilder, SelectMenuBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
+const { EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
 
 module.exports = {
     async execute(interaction, client) {
@@ -50,7 +50,7 @@ const ticketgraphismtyperow = new ActionRowBuilder()
     
 const ticketsupportRow = new ActionRowBuilder()
     .addComponents(
-        new SelectMenuBuilder()
+        new StringSelectMenuBuilder()
             .setCustomId('ticket_create-support')
             .setPlaceholder('Choisissez le type de ticket que vous voulez !')
             .addOptions([
