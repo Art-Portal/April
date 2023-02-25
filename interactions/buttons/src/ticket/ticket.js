@@ -54,7 +54,7 @@ module.exports = {
                             .setEmoji("❌")
                             .setCustomId("ticket_cancelDelete"),
                     );
-                interaction.editReply();
+                interaction.editReply({});
                 interaction.followUp({ content: "Êtes-vous sûr de vouloir supprimer ce ticket ?", components: [ticketRowDelete] })
                 break;
 
@@ -62,7 +62,7 @@ module.exports = {
                 if (!interaction.member.roles.cache.has('778016554066640896')) return interaction.reply({ content: "Tu n'a pas la permission de faire ça!", ephemeral: true });
                 await interaction.editReply({ content: "Le ticket va être supprimé dans 5 secondes !", components: [] })
                 setTimeout(() => {
-                    interaction.channel.delete({reason:`Ticket supprimé par ${interaction.user.tag} (${interaction.user.id})`})
+                    interaction.channel.delete(`Ticket supprimé par ${interaction.user.tag} (${interaction.user.id})`)
                 }, 5000)
                 break;
 
