@@ -10,7 +10,7 @@ Then add your fork as a local project:
 git clone https://github.com/Art-Portal/April.git
 
 # Using SSH
-git clone git@github.com:stevemao/github-issue-templates.git
+git clone git@github.com:Art-Portal/April.git
 ```
 
 > [Which remote URL should be used ?](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories)
@@ -18,7 +18,7 @@ git clone git@github.com:stevemao/github-issue-templates.git
 Then, go to your local folder
 
 ```sh
-cd github-issue-template
+cd April
 ```
 
 Add git remote controls :

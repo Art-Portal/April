@@ -24,3 +24,6 @@ npm install
 <a href="https://github.com/apps/dependabot">
     <img src="https://badgen.net/github/dependabot/Art-Portal/April"/>
 </a>
+<a href="https://www.codefactor.io/repository/github/art-portal/april">
+    <img src="https://www.codefactor.io/repository/github/art-portal/april/badge" alt="CodeFactor" />
+</a>

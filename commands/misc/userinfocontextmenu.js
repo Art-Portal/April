@@ -25,7 +25,6 @@ module.exports = {
 						value: ``
 							+ `<:invisibleSpacer:1038116840360120360><:iconID:1038063974807261195> **ID:** ${user.id}\n`
 							+ `<:invisibleSpacer:1038116840360120360><:iconProfile:1038064029064773724> **Nom complet:** ${user.tag}\n`
-							+ `<:invisibleSpacer:1038116840360120360><:iconProfile:1038064029064773724> **Bot:** ${user.bot ? "Oui" : "Non"}\n`
 							+ `<:invisibleSpacer:1038116840360120360><:iconTimer:1038063915151654932> **Créé:** <t:${Math.floor(user.createdTimestamp / 1000)}:d>`
 						,
 						inline: false
