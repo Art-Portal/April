@@ -66,8 +66,9 @@ for (const file of eventFiles) {
 
 deploy_commands(client, true);
 /*
-true will refresh slash commands (SET endpoint)
-false will delete them (SET endpoint with an empty array)
+  true will refresh slash commands (SET endpoint)
+  false will delete them (SET endpoint with an empty array)
+  null will not change slash commands
 */
 
 
