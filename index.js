@@ -64,7 +64,11 @@ for (const file of eventFiles) {
 	}
 }
 
-deploy_commands(client, true);//true: will refresh slash commands
+deploy_commands(client, true);
+/*
+true will refresh slash commands (SET endpoint)
+false will delete them (SET endpoint with an empty array)
+*/
 
 
 client.login(token);
