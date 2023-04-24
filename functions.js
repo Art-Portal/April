@@ -1,15 +1,14 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
 const { token, clientId, guildId } = require('./config.json');
-const { Collection, SlashCommandBuilder } = require('discord.js')
-const { isBoolean } = require('util')
+const { Collection, SlashCommandBuilder } = require('discord.js');
 const fs = require('fs');
 const rest = new REST({ version: '10' }).setToken(token);
 
 
 
 function deploy_commands(client, loadcommands) {
-    if (!isBoolean(loadcommands)) throw "type of loadcommands argument needs to be boolean";
+    if (typeof loadcommands !="boolean" && loadcommands != null) throw "loadcommands argument needs to be boolean or null";
 
     const commands = [];
     client.commands = new Collection();
@@ -24,13 +23,18 @@ function deploy_commands(client, loadcommands) {
             console.log(`${category}/${command.data.name} chargé !`);
         }
     }
-    if (loadcommands){
+    if (loadcommands==true){
         slashCommandLoad(client, commands);
+        console.log("Refreshed slash commands !");
     }
-    else{//Deletes slash commands
-        slashCommandLoad(client, [])
+    else if(loadcommands==false){//Deletes slash commands
+        slashCommandLoad(client, []);
+        console.log("Deleted slash commands !");
     }
-}
+    else{
+        console.log("Kept old commands");
+    }
+};
 
 async function slashCommandLoad(client, commands) {
     try {
