@@ -63,7 +63,7 @@ module.exports = {
                 await interaction.editReply({ content: "Le ticket va être supprimé dans 5 secondes !", components: [] })
 
                 const logchannel = await interaction.guild.channels.fetch('1036589658647314502');
-                await logchannel.send({ content: `${interaction.channel.name} fermé par <@${interaction.user.id}> (${interaction.user.id}` });
+                await logchannel.send({ content: `${interaction.channel.name} fermé par <@${interaction.user.id}> (${interaction.user.id})` });
                 setTimeout(() => {
                     interaction.guild.channels.delete(interaction.channel.id, `Ticket supprimé par ${interaction.user.tag} (${interaction.user.id})`)
                 }, 5000);
