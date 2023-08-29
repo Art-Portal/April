@@ -15,8 +15,15 @@ module.exports = {
 		)
 		.setDescription('Supprimer un grand nombre de messages d\'un salon'),
 	async execute(interaction, client) {
-        const number = interaction.options.getInteger('nombre');
-        await interaction.channel.bulkDelete(number);
-		await interaction.reply({ content: `J'ai bien supprimé ${number} message${number>1 ? "s" : ""} dans ce salon`, ephemeral: true});   
+		const number = interaction.options.getInteger('nombre');
+		try {
+			const fetched = await interaction.channel.fetchMessages({ limit: number });
+			const notPinned = fetched.filter(fetchedMsg => !fetchedMsg.pinned);
+
+			await interaction.channel.bulkDelete(notPinned, true);
+			await interaction.reply({ content: `J'ai bien supprimé ${number} message${number>1 ? "s" : ""} dans ce salon`, ephemeral: true});   
+		} catch(err) {
+			console.error(err);
+		}
     }
 };
