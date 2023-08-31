@@ -55,5 +55,6 @@ const loverates = {
     "697438073646088194": ["Je l'aime bien, lui, même si quand je le vois j'ai envie de poulet rôti je sais pas pourquoi", "https://media.discordapp.net/attachments/867491241491038209/1036987746457235526/april_sip.png"],//CoolMan
     "277136155244232706": ["Dawn ? HMMMMMMMMMMMM", "https://media.discordapp.net/attachments/867491241491038209/1036987746809548860/AprilThinking.png"],//Ced
     "718456289704804392": ["MAMAN JTM <333", "https://media.discordapp.net/attachments/867491241491038209/1036987744670457907/april_cat.png"],
-    "397867150867693579": ["Il a des bons gouts musicaux lui", "https://cdn.discordapp.com/attachments/867491241491038209/1036988529248567306/AprilMusic.png"]
+    "397867150867693579": ["Il a des bons gouts musicaux lui", "https://cdn.discordapp.com/attachments/867491241491038209/1036988529248567306/AprilMusic.png"],
+    "399605361465622539": ["il est mignon lui mais quand je le vois je veux le prendre en photo, "https://media.discordapp.net/attachments/867491241491038209/1036987744670457907/april_cat.png""]
 }
