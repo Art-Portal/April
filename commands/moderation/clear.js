@@ -22,7 +22,7 @@ module.exports = {
 			const notPinned = fetched.filter(fetchedMsg => !fetchedMsg.pinned);
 
 			await interaction.channel.bulkDelete(notPinned, true);
-			await interaction.editReply({ content: `J'ai bien supprimé ${number} message${number>1 ? "s" : ""} dans ce salon`, ephemeral: true});   
+			await interaction.editReply({ content: `J'ai bien supprimé ${notPinned.size} message${notPinned.size>1 ? "s" : ""} dans ce salon`, ephemeral: true});   
 		} catch(err) {
 			console.error(err);
 		}
