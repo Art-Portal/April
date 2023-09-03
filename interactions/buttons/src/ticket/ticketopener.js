@@ -58,6 +58,11 @@ module.exports = {
                             emoji: '🪟'
                         },
                         {
+                            label: 'Montage/Editing',
+                            value: 'ticket_editing',
+                            emoji: '🎬'
+                        },
+                        {
                             label: 'Autre/Other',
                             value: 'ticket_other',
                             emoji: '🎈'

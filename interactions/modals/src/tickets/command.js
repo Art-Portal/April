@@ -148,9 +148,9 @@ const cmdTypeDict = {
     "ytbbanner": "Bannière Youtube/...",
     "drawing": "Dessin",
     "profilepicture": "Photo de profil",
-    "video": "Video/Montage",
     "overlay": "Overlay de stream",
     "emojis": "Émojis/Stickers",
     "minia": "Miniature",
+    "editing": "Montage",
     "other": "Autre",
 };
