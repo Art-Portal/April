@@ -8,7 +8,7 @@ const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
 		GatewayIntentBits.GuildMembers,
-		GatewayIntentBits.GuildBans,
+		GatewayIntentBits.GuildModeration,
 		GatewayIntentBits.GuildMessages
     ]
 });
