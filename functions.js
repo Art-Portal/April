@@ -1,7 +1,7 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
 const { token, clientId, guildId, sequelizeCredentials } = require('./config.json');
-const { Collection, SlashCommandBuilder } = require('discord.js');
+const { Collection } = require('discord.js');
 const fs = require('fs');
 const rest = new REST({ version: '10' }).setToken(token);
 const Sequelize = require('sequelize');
