@@ -1,8 +1,7 @@
 const fs = require('fs');
-const Sequelize = require('sequelize');
 const { Client, GatewayIntentBits } = require("discord.js");
-const { token, sequelizeCredentials } = require('./config.json');
-const { deploy_commands } = require('./functions.js');
+const { token } = require('./config.json');
+const { deploy_commands, loadDatabase } = require('./functions.js');
 
 const client = new Client({
     intents: [
@@ -13,46 +12,7 @@ const client = new Client({
     ]
 });
 
-const sequelize = new Sequelize('database', sequelizeCredentials.username, sequelizeCredentials.password, {
-	host: 'localhost',
-	dialect: 'sqlite',
-	logging: false,
-	storage: 'database.sqlite',
-});
-const blacklistdb = sequelize.define('blacklist', {
-	name: {//id
-		type: Sequelize.STRING,
-		unique: true,
-	},
-	username: Sequelize.STRING,
-	reason: Sequelize.TEXT,
-	timestamp: Sequelize.STRING,
-	moderatorid: Sequelize.STRING
-});
-
-const modlog = sequelize.define('sanctions', {
-	name: Sequelize.STRING,//id
-	username: Sequelize.STRING,
-	type: Sequelize.STRING,
-	reason: Sequelize.TEXT,
-	timestamp: Sequelize.STRING,
-	moderatorid: Sequelize.STRING
-});
-
-const artists = sequelize.define('artists', {
-	name: Sequelize.STRING,//id
-	emoji: Sequelize.STRING,
-});
-
-client.database = {
-	sequelize: sequelize,
-	modlog: modlog,
-	blacklistdb: blacklistdb,
-	artists: artists,
-};
-blacklistdb.sync();
-modlog.sync();
-artists.sync();
+loadDatabase(client)
 
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {

@@ -1,9 +1,10 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
-const { token, clientId, guildId } = require('./config.json');
+const { token, clientId, guildId, sequelizeCredentials } = require('./config.json');
 const { Collection, SlashCommandBuilder } = require('discord.js');
 const fs = require('fs');
 const rest = new REST({ version: '10' }).setToken(token);
+const Sequelize = require('sequelize');
 
 
 
@@ -36,6 +37,7 @@ function deploy_commands(client, loadcommands) {
     }
 };
 
+
 async function slashCommandLoad(client, commands) {
     try {
         console.log('Je commence à actualiser les commandes slash.');
@@ -50,4 +52,48 @@ async function slashCommandLoad(client, commands) {
     return client.commands;
 };
 
-module.exports = { deploy_commands }
+
+function loadDatabase(client) {
+    const sequelize = new Sequelize('database', sequelizeCredentials.username, sequelizeCredentials.password, {
+        host: 'localhost',
+        dialect: 'sqlite',
+        logging: false,
+        storage: 'database.sqlite',
+    });
+    const blacklistdb = sequelize.define('blacklist', {
+        name: {//id
+            type: Sequelize.STRING,
+            unique: true,
+        },
+        username: Sequelize.STRING,
+        reason: Sequelize.TEXT,
+        timestamp: Sequelize.STRING,
+        moderatorid: Sequelize.STRING
+    });
+    
+    const modlog = sequelize.define('sanctions', {
+        name: Sequelize.STRING,//id
+        username: Sequelize.STRING,
+        type: Sequelize.STRING,
+        reason: Sequelize.TEXT,
+        timestamp: Sequelize.STRING,
+        moderatorid: Sequelize.STRING
+    });
+    
+    const artists = sequelize.define('artists', {
+        name: Sequelize.STRING,//id
+        emoji: Sequelize.STRING,
+    });
+    
+    client.database = {
+        sequelize: sequelize,
+        modlog: modlog,
+        blacklistdb: blacklistdb,
+        artists: artists,
+    };
+    blacklistdb.sync();
+    modlog.sync();
+    artists.sync();
+}
+
+module.exports = { deploy_commands, loadDatabase }
