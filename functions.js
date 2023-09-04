@@ -1,8 +1,10 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
-const { token, clientId, guildId, sequelizeCredentials } = require('./config.json');
-const { Collection } = require('discord.js');
+const { token, clientId, guildId, sequelizeCredentials, errorWebhookURL } = require('./config.json');
+const { Collection, WebhookClient, EmbedBuilder, Client } = require('discord.js');
+const { inspect } = require("util");
 const fs = require('fs');
+
 const rest = new REST({ version: '10' }).setToken(token);
 const Sequelize = require('sequelize');
 
@@ -96,4 +98,94 @@ function loadDatabase(client) {
     artists.sync();
 }
 
-module.exports = { deploy_commands, loadDatabase }
+function loadErrorCatcher(client) {
+    client.errorCatcherWebhook = new WebhookClient({
+        url: errorWebhookURL,
+    });
+
+    process.on("unhandledRejection", (reason, promise) => {
+        console.log(reason, "\n", promise);
+
+        const errorEmbed = new EmbedBuilder()
+            .setColor("Red")
+            .setTitle("Unhandled Rejection/Catch")
+            .setURL("https://nodejs.org/api/process.html#event-unhandledrejection")
+            .addFields(
+                {
+                    name: "Reason",
+                    value: `\`\`\`${inspect(reason, { depth: 0 }).slice(0, 1000)}\`\`\``,
+                },
+                {
+                    name: "Promise",
+                    value: `\`\`\`${inspect(promise, { depth: 0 }).slice(0, 1000)}\`\`\``,
+                }
+            )
+        .setTimestamp();
+
+        return client.errorCatcherWebhook.send({ embeds: [errorEmbed] });
+    });
+
+    process.on("uncaughtException", (err, origin) => {
+        console.log(err, "\n", origin);
+
+        const errorEmbed = new EmbedBuilder()
+            .setColor("Red")
+            .setTitle("Uncaught Exception/Catch")
+            .setURL("https://nodejs.org/api/process.html#event-uncaughtexception")
+            .addFields(
+                {
+                    name: "Error",
+                    value: `\`\`\`${inspect(err, { depth: 0 }).slice(0, 1000)}\`\`\``,
+                },
+                {
+                    name: "Origin",
+                    value: `\`\`\`${inspect(origin, { depth: 0 }).slice(0, 1000)}\`\`\``,
+                }
+            )
+        .setTimestamp();
+
+        return client.errorCatcherWebhook.send({ embeds: [errorEmbed] });
+    });
+
+    process.on("uncaughtExceptionMonitor", (err, origin) => {
+        console.log(err, "\n", origin);
+
+        const errorEmbed = new EmbedBuilder()
+            .setColor("Red")
+            .setTitle("Uncaught Exception Monitor")
+            .setURL(
+                "https://nodejs.org/api/process.html#event-uncaughtexceptionmonitor"
+            )
+            .addFields(
+                {
+                    name: "Error",
+                    value: `\`\`\`${inspect(err, { depth: 0 }).slice(0, 1000)}\`\`\``,
+                },
+                {
+                    name: "Origin",
+                    value: `\`\`\`${inspect(origin, { depth: 0 }).slice(0, 1000)}\`\`\``,
+                }
+            )
+            .setTimestamp();
+
+        return client.errorCatcherWebhook.send({ embeds: [errorEmbed] });
+    });
+
+    process.on("warning", (warn) => {
+        console.log(warn);
+
+        const errorEmbed = new EmbedBuilder()
+            .setColor("Red")
+            .setTitle("Uncaught Exception Monitor Warning")
+            .setURL("https://nodejs.org/api/process.html#event-warning")
+            .addFields({
+                name: "Warning",
+                value: `\`\`\`${inspect(warn, { depth: 0 }).slice(0, 1000)}\`\`\``,
+            })
+            .setTimestamp();
+
+        return client.errorCatcherWebhook.send({ embeds: [errorEmbed] });
+    });
+}
+
+module.exports = { deploy_commands, loadDatabase, loadErrorCatcher }

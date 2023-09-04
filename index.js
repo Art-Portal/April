@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { Client, GatewayIntentBits } = require("discord.js");
 const { token } = require('./config.json');
-const { deploy_commands, loadDatabase } = require('./functions.js');
+const { deploy_commands, loadDatabase, loadErrorCatcher } = require('./functions.js');
 
 const client = new Client({
     intents: [
@@ -12,7 +12,8 @@ const client = new Client({
     ]
 });
 
-loadDatabase(client)
+loadDatabase(client);
+loadErrorCatcher(client);
 
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
