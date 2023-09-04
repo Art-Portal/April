@@ -7,8 +7,8 @@ module.exports = {
     if (guild.id==guildId){
 		const channel = await guild.channels.cache.find(c => c.id == generalChannelId );
 		try{
-			const welcomesticker = await guild.stickers.fetch('985933707317743666')
-			const message = await channel.send({ content: welcomemessage.replace("[memberid]", member.id), stickers:[welcomesticker]});
+			const welcomesticker = await guild.stickers.fetch('985933707317743666');
+			const message = await channel.send({ content: welcomemessage.replace("[memberid]", member.id), stickers: welcomesticker.available ? [welcomesticker] : []});
 			Promise.all([
 					message.react('👋'),
 			]).catch(error => console.error(error))
