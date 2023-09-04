@@ -5,10 +5,10 @@ module.exports = {
         interaction.deferReply({ ephemeral: true });
         const embedToSend = interaction.message.embeds[0];
         const userId = interaction.customId.replace("applicationopen_","");
-        const member = client.users.cache.find(user => user.id === userId)
+        const member = await interaction.guild.members.fetch(userId);
 
         await interaction.guild.channels.create({
-            name: `candidature-${member.username}`,
+            name: `candidature-${member.user.username}`,
             type: ChannelType.GuildText,
             parent: '916721453121040424',
             permissionOverwrites: [
