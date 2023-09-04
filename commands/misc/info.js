@@ -1,4 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const moment = require("moment");
+require("moment-duration-format");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -131,13 +133,77 @@ module.exports = {
 			    break;
 
             case 'april':
+				const uptime = moment.duration(client.uptime).format("\`D\` [days], \`H\` [hrs], \`m\` [mins], \`s\` [secs]");
+
                 const embedBOTINFO = new EmbedBuilder()
                     .setAuthor({
                         name: "April"
                     })
                     .setColor("Blurple")
-                    .setThumbnail("https://media.discordapp.net/attachments/867491241491038209/987292546180984832/april-welcome.png")
-                    .setDescription("Euh oui voilà april da best je ferais un description un jour :3")
+                    .setThumbnail(client.user.avatarURL({ size: 1024 }))
+                    .setDescription("____________________________")
+					.setFields([
+						{
+							name: "_____ \n\n│General",
+							value: `_____`,
+							inline: false,
+						},
+						{
+							name: "🆔┆Id",
+							value: `${client.user.id}`,
+							inline: true,
+						},
+						{
+							name: "💻┆Commandes",
+							value: `\`${client.commands.size}\` commandes`,
+							inline: true,
+						},
+						{
+							name: "🔧┆Developpeur",
+							value: `<@!697438073646088194>`,
+							inline: true,
+						},
+						{
+							name: "📅┆Créée",
+							value: `<t:${Math.round(client.user.createdTimestamp / 1000)}>`,
+							inline: true,
+						},
+						{
+							name: "_____ \n\n│System",
+							value: `_____`,
+							inline: false,
+						},
+						{
+							name: "🆙┆Uptime",
+							value: `${uptime}`,
+							inline: true,
+						},
+						{
+							name: "⌛┆Latence API:",
+							value: `\`${client.ws.ping}\`ms`,
+							inline: true,
+						},
+						{
+							name: "🏷┆Version du Bot",
+							value: `\`${require(`${process.cwd()}/package.json`).version}\``,
+							inline: true,
+						},
+						{
+							name: "🏷┆Version de Node.js",
+							value: `\`${process.version}\``,
+							inline: true,
+						},
+						{
+							name: "📂┆Version de Discord.js",
+							value: `\`${require("discord.js").version}\``,
+							inline: true,
+						},
+						{
+							name: "💾┆RAM",
+							value: `\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}\` MB`,
+							inline: true,
+						},
+					])
                 await interaction.reply({
                     embeds: [embedBOTINFO],
                     ephemeral: false
