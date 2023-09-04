@@ -1,3 +1,5 @@
+const { ActivityType } = require("discord.js")
+
 module.exports = {
 	name: 'ready',
 	once: true,
@@ -6,9 +8,8 @@ module.exports = {
         client.user.setStatus('online');
         
         let status_list = [
-            "être la mascotte de Art'Portal",
+            "Mascotte de Art'Portal",
             "instagram.com/aprilartportal",
-            "Art'Portal | discord.gg/graphisme",
             "Aprıl - Art'portal",
             ""
             ];
@@ -24,11 +25,19 @@ module.exports = {
             "https://media.discordapp.net/attachments/867491241491038209/987292546180984832/april-welcome.png",
             "https://media.discordapp.net/attachments/867491241491038209/987466337095917568/AprilStyle-min.png"
             ];
-        client.user.setActivity("être la mascotte d' Art'Portal", { type: "PLAYING" });
+        client.user.setActivity({
+            type: ActivityType.Custom,
+            name: "custom_status",
+            state: "Mascotte d'Art'Portal"
+        });
             setInterval(() => {
                 let Random = Math.floor(Math.random() * (status_list.length));
                 let Random2 = Math.floor(Math.random() * (profilepictures_list.length));
-                client.user.setActivity(status_list[Random], { type: "PLAYING" });
+                client.user.setActivity({
+                    type: ActivityType.Custom,
+                    name: "custom_status",
+                    state: status_list[Random]
+                });
                 client.user.setAvatar(profilepictures_list[Random2]);
             }, 300000);
     }
