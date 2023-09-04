@@ -1,4 +1,4 @@
-const { guildId, generalChannelId, rulesChannelId, rolesChannelId } = require('../config.json');
+const { guildId, generalChannelId, rulesChannelId } = require('../config.json');
 
 module.exports = {
 	name: 'guildMemberAdd',
