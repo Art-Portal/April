@@ -4,10 +4,28 @@ Mascotte d'[Art'Portal](https://discord.gg/graphisme)
 Rénovation par @CoolMan#4094, @BakaTaida#5677 et @Dawn#0404  
 Artwork par @Frisk#7515
 
-Pour installer le bot, vous aurez simplement **besoin d'effectuer cette simple commande** :
-```
-npm install
-```
+Afin d'utiliser April, vous pouvez utiliser **un de ces deux frameworks** :
+<details>
+    <summary>Node.js</summary>
+
+    Afin d'installer les dépendances du bot et de le démarrer, utilisez :
+    ```
+    npm install
+    node index.js
+    ```
+  
+</details>
+<details>
+    <summary>Bun</summary>
+
+    Afin d'installer les dépendances du bot et de le démarrer, utilisez :
+    ```
+    bun install
+    bun run index.js
+    ```
+  
+</details>
+
 
 <a href="https://github.com/Art-Portal/April/actions/workflows/codeql.yml">
     <img src="https://github.com/Art-Portal/April/actions/workflows/codeql.yml/badge.svg"/>
