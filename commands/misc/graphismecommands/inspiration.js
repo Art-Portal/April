@@ -1,9 +1,6 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('inspiration')
-		.setDescription('Une citation, suggestion de couleur ou proposition de méthode'),
     async execute(interaction){
         const randomIndex = Math.floor(Math.random() * inspirations.length);
         const inspiration = inspirations[randomIndex];
