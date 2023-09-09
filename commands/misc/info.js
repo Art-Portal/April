@@ -189,8 +189,8 @@ module.exports = {
 							inline: true,
 						},
 						{
-							name: "🏷┆Version de Node.js",
-							value: `\`${process.version}\``,
+							name: `🏷┆Version de ${process.versions.bun ? "Bun" : "Node.js"}`,
+							value: `\`${process.versions.bun ? process.versions.bun : process.version}\``,
 							inline: true,
 						},
 						{
