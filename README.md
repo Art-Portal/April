@@ -23,6 +23,8 @@ Afin d'utiliser April, vous pouvez utiliser **un de ces deux frameworks** :
     bun install
     bun run index.js
     ```
+    > [!WARNING]  
+    > Dû au module canvas, bun n'est actuellement pas fonctionnel (affecte uniquement la commande /graphisme palette).
   
 </details>
 
