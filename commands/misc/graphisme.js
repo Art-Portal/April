@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const Inspiration = require('./graphismecommands/inspiration.js');
 const Palette = require('./graphismecommands/palette.js');
 const Remix = require('./graphismecommands/remix.js');
+const Blend = require('./graphismecommands/colorblend.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -46,6 +47,30 @@ module.exports = {
                                 { name: 'Aquarelle', value: 'watercolor' },
                                 { name: 'Néon', value: 'neon' },
                             ))
+        )
+        .addSubcommand(
+            subcommand =>
+                subcommand
+                    .setName('blend')
+                    .setDescription('Combine deux couleurs pour en créer une troisième.')
+                    .addStringOption(option =>
+                        option.setName('color1')
+                            .setDescription('La première couleur')
+                            .setRequired(true))
+                    .addStringOption(option =>
+                        option.setName('color2')
+                            .setDescription('La deuxième couleur')
+                            .setRequired(true))
+                    .addStringOption(option =>
+                        option.setName('mode')
+                            .setDescription('Le mode de fusion')
+                            .setRequired(true)
+                            .addChoices(
+                                { name: 'Normal', value: 'normal' },
+                                { name: 'Multiplication', value: 'multiply' },
+                                { name: 'Écran', value: 'screen' },
+                                { name: 'Overlay', value: 'overlay' },
+                            ))
         ),
     async execute(interaction) {
         switch (interaction.options.getSubcommand()) {
@@ -57,6 +82,9 @@ module.exports = {
                 break;
             case 'remix':
                 Remix.execute(interaction);
+                break;
+            case 'blend':
+                Blend.execute(interaction);
                 break;
         }
     }
