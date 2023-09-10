@@ -8,7 +8,7 @@ module.exports = {
         await interaction.deferReply();
         const filter = interaction.options.getString('filter');
 
-        const canvas = Canvas.createCanvas(500, 500);
+        const canvas = Canvas.createCanvas(file.width, file.height);
         const ctx = canvas.getContext('2d');
     
         const image = await Canvas.loadImage(file.url);
