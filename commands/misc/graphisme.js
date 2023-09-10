@@ -37,6 +37,14 @@ module.exports = {
                                 { name: 'Nuance de gris', value: 'grayscale' },
                                 { name: 'Sepia', value: 'sepia' },
                                 { name: 'Flou', value: 'blur' },
+                                { name: 'Pixelisé', value: 'pixelate' },
+                                { name: 'Miroir', value: 'mirror' },
+                                { name: 'Rotation', value: 'rotate' },
+                                { name: 'Luminosité', value: 'brightness' },
+                                { name: 'Vintage', value: 'vintage' },
+                                { name: 'Peinture à l\'huile', value: 'oilpaint' },
+                                { name: 'Aquarelle', value: 'watercolor' },
+                                { name: 'Néon', value: 'neon' },
                             ))
         ),
     async execute(interaction) {
