@@ -12,6 +12,10 @@ module.exports = {
         .addChannelOption(option => 
             option.setName('destination')
                 .setDescription('Sélectionnez le salon où envoyer le message!')
+                .setRequired(false))
+        .addStringOption(option => 
+            option.setName('reply')
+                .setDescription('Id du message auquel répondre!')
                 .setRequired(false)),
 	async execute(interaction) {       
         let msgtosend = interaction.options.getString('message');
@@ -22,8 +26,10 @@ module.exports = {
             channeltosend = interaction.channel
         }
         
+        const replyMessageId = interaction.options.getString('reply') || null;
+        
         try {
-            channeltosend.send(msgtosend)
+            channeltosend.send({ content: msgtosend, reply: { messageReference: replyMessageId }})
             await interaction.reply({
                 content: "Message envoyé !",
                 ephemeral: true
