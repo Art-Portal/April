@@ -4,7 +4,7 @@ const { AttachmentBuilder } = require('discord.js')
 module.exports = {
     async execute(interaction){
         const file = interaction.options.getAttachment('image');
-        if(!file.contentType.startsWith("image")) return interaction.reply({ content: "Merci d'envoyer une image", ephemeral: true });
+        if(!file.contentType || !file.contentType.startsWith("image")) return interaction.reply({ content: "Merci d'envoyer une image", ephemeral: true });
         await interaction.deferReply();
         const filter = interaction.options.getString('filter');
 
