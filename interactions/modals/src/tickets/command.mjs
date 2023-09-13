@@ -1,5 +1,5 @@
 import { PermissionFlagsBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ChannelType, ButtonStyle, ThreadAutoArchiveDuration }  from 'discord.js';
-import config from './config.json' assert { type: 'json' };
+import config from '../../../../config.json' assert { type: 'json' };
 const { progressBar } = config;
 
 export default {

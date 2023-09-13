@@ -1,6 +1,6 @@
 import { SlashCommandBuilder }  from 'discord.js';
 import { deploy_commands }  from '../../functions.mjs';
-import config from './config.json' assert { type: 'json' };
+import config from '../../config.json' assert { type: 'json' };
 const { devId } = config;
 
 export default {

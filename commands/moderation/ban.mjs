@@ -1,5 +1,5 @@
 import { EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import config from './config.json' assert { type: 'json' };
+import config from '../../config.json' assert { type: 'json' };
 const { sanctionChannelId } = config;
 
 export default {
