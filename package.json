@@ -2,7 +2,7 @@
   "name": "april",
   "version": "4.5.3-beta",
   "description": "Best bot ever OwO",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "test": "node index"
   },

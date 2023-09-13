@@ -1,4 +1,7 @@
 {
+  "include": [
+    "*.json"
+  ],
   "compilerOptions": {
     "lib": ["ESNext"],
     "module": "esnext",
