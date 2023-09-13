@@ -35,7 +35,7 @@ export default {
         const banEMBED = new EmbedBuilder()
             .setColor(`#009500`)
             .setThumbnail(`https://i.imgur.com/zcZsfNA.png`)
-            .setTitle(`➔ Art' Portal - Bannissement`)
+            .setTitle(`➔ Art' Portal - Note`)
             .addFields(
                 { 
                     name: "・Utilisateur.trice・",
