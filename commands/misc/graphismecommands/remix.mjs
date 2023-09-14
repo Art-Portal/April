@@ -236,9 +236,8 @@ function applyOilPaintEffect(ctx, radius, intensity) {
         height = ctx.canvas.height,
         imgData = ctx.getImageData(0, 0, width, height),
         pixData = imgData.data,
-        pixelIntensityCount = [];
-        
-    destCanvas = ctx.canvas;
+        pixelIntensityCount = [],
+        destCanvas = ctx.canvas;
 
     destCanvas.width = width;
     destCanvas.height = height;
