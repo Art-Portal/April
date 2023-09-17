@@ -11,7 +11,7 @@ export default {
             let user = interaction.options.getUser('utilisateur');
             if (!user) user = interaction.user;
 
-            loveuser = user.id.substring(0, 19);
+            const loveuser = user.id.substring(0, 19);
             
             var love = Number(Number(String(String(loveuser).substring(17)).replace("0", "8").replace("1", "8")) * Number(String("858387628567298108".substring(17)).replace("0", "8").replace("1", "8")) + Number(Number(String(String(loveuser).substring(7, 8)).replace("0", "8").replace("1", "8")) + Number(String("858387628567298108".substring(7, 8)).replace("0", "8").replace("1", "8"))));
 
