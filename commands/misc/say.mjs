@@ -19,7 +19,7 @@ export default {
                 .setRequired(false)),
 	async execute(interaction) {       
         let msgtosend = interaction.options.getString('message');
-        msgtosend = msgtosend.substring(0,2000);
+        msgtosend = msgtosend.substring(0,2000).replace(/\\n/g, "\n");
         
         let channeltosend = interaction.options.getChannel('destination');
         if (!channeltosend) {
