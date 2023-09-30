@@ -30,7 +30,7 @@ export default {
             const memberRoleRawPos = interaction.member.roles.highest.rawPosition;
             if (user.id === interaction.user.id) return interaction.reply({content: `Vous ne pouvez pas vous noter vous-même! !`, ephemeral: true});
             if (userRoleRawPos >= memberRoleRawPos) return interaction.reply({content: `Vous ne pouvez pas noter cet utilisateur.`, ephemeral: true});
-        }
+        };
 
         const banEMBED = new EmbedBuilder()
             .setColor(`#009500`)
@@ -57,19 +57,18 @@ export default {
                     inline: true
                 },
             );
-            await interaction.reply({embeds: [banEMBED], ephemeral: true});
-            const channel = await interaction.guild.channels.cache.get(sanctionChannelId);
-            await channel.send({
-                embeds: [banEMBED]
-            });
-            await client.database.modlog.create({
-                name: user.id,
-                username: user.tag,
-                type: "Note",
-                reason: reason,
-                timestamp: Math.floor(new Date().getTime()/1000),
-                moderatorid: interaction.member.user.id
-            })
-
-    }
+        await interaction.reply({embeds: [banEMBED], ephemeral: true});
+        const channel = await interaction.guild.channels.cache.get(sanctionChannelId);
+        await channel.send({
+            embeds: [banEMBED]
+        });
+        await client.database.modlog.create({
+            name: user.id,
+            username: user.tag,
+            type: "Note",
+            reason: reason,
+            timestamp: Math.floor(new Date().getTime()/1000),
+            moderatorid: interaction.member.user.id
+        });
+    },
 };

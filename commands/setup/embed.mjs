@@ -15,8 +15,8 @@ export default {
             case 'create':
                 await interaction.reply({ embeds: [baseembed], components: embedbuilderrows, ephemeral: true });
                 break;
-        }
-	}
+        };
+	},
 };
 const baseembed = new EmbedBuilder()
     .setTitle("Constructeur d'embed")

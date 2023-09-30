@@ -13,7 +13,7 @@ export default {
 		    .setName('user')
 		    .setDescription('Membre à bannir / id si le membre n\'est pas sur le serveur')
 		    .setRequired(true)
-	)
+	    )
         .addStringOption(
             option =>
                 option
@@ -60,19 +60,18 @@ export default {
                     inline: true
                 },
             );
-            await interaction.reply({embeds: [banEMBED], ephemeral: true});
-            const channel = await interaction.guild.channels.cache.get(sanctionChannelId);
-            await channel.send({
-                embeds: [banEMBED]
-            });
-            await client.database.modlog.create({
-                name: user.id,
-                username: user.tag,
-                type: "Ban",
-                reason: reason,
-                timestamp: Math.floor(new Date().getTime()/1000),
-                moderatorid: interaction.member.user.id
-            })
-
-    }
+        await interaction.reply({embeds: [banEMBED], ephemeral: true});
+        const channel = await interaction.guild.channels.cache.get(sanctionChannelId);
+        await channel.send({
+            embeds: [banEMBED]
+        });
+        await client.database.modlog.create({
+            name: user.id,
+            username: user.tag,
+            type: "Ban",
+            reason: reason,
+            timestamp: Math.floor(new Date().getTime()/1000),
+            moderatorid: interaction.member.user.id
+        });
+    },
 };

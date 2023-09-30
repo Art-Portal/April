@@ -20,10 +20,10 @@ async function deploy_commands(client, loadcommands) {
     const commands = [];
     client.commands = new Collection();
     const commandCategories = fs.readdirSync('./commands').filter(file => !file.includes('.'));
-    console.log(`Loading ${commandCategories.toString()} commands...`)
+    console.log(`Loading ${commandCategories.toString()} commands...`);
     for (const category of commandCategories) {
         const commandFiles = fs.readdirSync(`./commands/${category}`).filter(file => file.endsWith('.mjs'));
-        console.log(`Loading ${commandFiles.toString()}...`)
+        console.log(`Loading ${commandFiles.toString()}...`);
         for (const file of commandFiles) {
             const { default: command } = await import(`./commands/${category}/${file}`);
             commands.push(command.data);
@@ -62,7 +62,7 @@ async function slashCommandLoad(client, commands) {
 
 
 function loadDatabase(client) {
-    console.log("Starting to load database...")
+    console.log("Starting to load database...");
     const sequelize = new Sequelize('database', sequelizeCredentials.username, sequelizeCredentials.password, {
         host: 'localhost',
         dialect: 'sqlite',
@@ -103,11 +103,11 @@ function loadDatabase(client) {
     blacklistdb.sync();
     modlog.sync();
     artists.sync();
-    console.log("Database loaded !")
+    console.log("Database loaded !");
 }
 
 function loadErrorCatcher(client) {
-    console.log("Loading error catcher...")
+    console.log("Loading error catcher...");
     client.errorCatcherWebhook = new WebhookClient({
         url: errorWebhookURL,
     });
@@ -129,7 +129,7 @@ function loadErrorCatcher(client) {
                     value: `\`\`\`${inspect(promise, { depth: 0 }).slice(0, 1000)}\`\`\``,
                 }
             )
-        .setTimestamp();
+            .setTimestamp();
 
         return client.errorCatcherWebhook.send({ embeds: [errorEmbed] });
     });
@@ -151,7 +151,7 @@ function loadErrorCatcher(client) {
                     value: `\`\`\`${inspect(origin, { depth: 0 }).slice(0, 1000)}\`\`\``,
                 }
             )
-        .setTimestamp();
+            .setTimestamp();
 
         return client.errorCatcherWebhook.send({ embeds: [errorEmbed] });
     });
@@ -196,7 +196,7 @@ function loadErrorCatcher(client) {
         return client.errorCatcherWebhook.send({ embeds: [errorEmbed] });
     });
 
-    console.log("Error catcher loaded !")
+    console.log("Error catcher loaded !");
 }
 
 export { deploy_commands, loadDatabase, loadErrorCatcher }

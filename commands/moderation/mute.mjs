@@ -79,6 +79,6 @@ export default {
 			reason: reason,
 			timestamp: Math.floor(new Date().getTime()/1000),
 			moderatorid: interaction.member.user.id
-		})
+		});
     }
 };

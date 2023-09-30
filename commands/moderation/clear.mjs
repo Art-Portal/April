@@ -14,7 +14,7 @@ export default {
 					.setRequired(true)
 		)
 		.setDescription('Supprimer un grand nombre de messages d\'un salon'),
-	async execute(interaction, client) {
+	async execute(interaction) {
 		await interaction.deferReply({ ephemeral: true })
 		const number = interaction.options.getInteger('nombre');
 		try {
@@ -25,6 +25,6 @@ export default {
 			await interaction.editReply({ content: `J'ai bien supprimé ${notPinned.size} message${notPinned.size>1 ? "s" : ""} dans ce salon`, ephemeral: true});   
 		} catch(err) {
 			console.error(err);
-		}
-    }
+		};
+    },
 };

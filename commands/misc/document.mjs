@@ -14,8 +14,8 @@ export default {
             case 'sanctions':
                 await interaction.reply({ components: [sanctionembedrow], ephemeral: true });
                 break;
-        }
-    }
+        };
+    },
 };
 
 

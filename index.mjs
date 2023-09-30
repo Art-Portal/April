@@ -27,7 +27,7 @@ for (const file of eventFiles) {
 	} else {
 		client.on(event.name, (...args) => event.execute(...args, client));
 	}
-	console.log(`Loaded ${event.name} event !`)
+	console.log(`Loaded ${event.name} event !`);
 }
 
 deploy_commands(client, true);

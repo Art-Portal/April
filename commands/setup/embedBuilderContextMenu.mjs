@@ -7,10 +7,8 @@ export default {
         .setDefaultMemberPermissions(0x8),
     async execute(interaction){
         const embed = interaction.targetMessage.embeds[0] || baseembed;
-
         await interaction.reply({ embeds: [embed], components: embedbuilderrows, ephemeral: true });
-
-    }
+    },
 }
 
 const baseembed = new EmbedBuilder()

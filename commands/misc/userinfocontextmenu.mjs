@@ -4,7 +4,7 @@ export default {
 		.setName('UserInfo')
 		.setType(2),
 		
-	async execute(interaction, client) {
+	async execute(interaction) {
 		const user = interaction.targetUser;
 		const member = interaction.targetMember;
 
@@ -45,15 +45,15 @@ export default {
 						name: `📝 Rôles [${member.roles.cache.size - 1}]`,
 						value: member.roles.cache.size ? member.roles.cache.map(roles => `**${roles}**`).slice(0, 20).join(" ") : "None",
 						inline: false
-					}])
-			}
+					}]);
+			};
 		} else {
 			embedUSERINFO.setDescription("Utilisateur inconnu")
-		}
+		};
 
 		await interaction.reply({
 			embeds: [embedUSERINFO],
 			ephemeral: false
 		});
-	}
-}
+	},
+};

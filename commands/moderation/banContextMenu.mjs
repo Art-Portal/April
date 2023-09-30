@@ -36,8 +36,7 @@ export default {
                             .setMinLength(10)
                             .setMaxLength(1000)
                     ),
-                
-            ])
-        interaction.showModal(banModal)
-    }
+            ]);
+        interaction.showModal(banModal);
+    },
 };

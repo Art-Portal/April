@@ -30,6 +30,6 @@ export default {
                 emoji: emoji,
             });
             await interaction.reply({ content: `Émoji de <@${member.id}> défini sur ${emoji} !`, ephemeral: true });
-        }
+        };
     },
 };

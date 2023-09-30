@@ -27,6 +27,6 @@ export default {
                     .setColor('#fc00f8')
                     .setDescription('Suite Description, Suite placeholder, Suite tuto hahahaha'),
             ]
-        })
-    }
-}
+        });
+    },
+};

@@ -1,11 +1,11 @@
 import { EmbedBuilder, SlashCommandBuilder }  from 'discord.js';
 export default {
     data: new SlashCommandBuilder()
-    .setName('lovecalc')
-    .setDescription('Pour calculer le pourcentage d\'amour avec April !')
-    .addUserOption(option => option.setName('utilisateur')
-    .setDescription('Utilisateur avec qui tester le lovecalc')
-    .setRequired(false)),
+        .setName('lovecalc')
+        .setDescription('Pour calculer le pourcentage d\'amour avec April !')
+        .addUserOption(option => option.setName('utilisateur')
+        .setDescription('Utilisateur avec qui tester le lovecalc')
+        .setRequired(false)),
     async execute(interaction) {
         try {
             let user = interaction.options.getUser('utilisateur');
@@ -36,7 +36,7 @@ export default {
                 if(love>100) love = 100
                 textlove = `${love}% ! T'as l'air vachement sympa ${user.username} !`;
                 image = "https://media.discordapp.net/attachments/867491241491038209/970423543626092604/portalgirl-wouah.webp";
-            }
+            };
 
             var loveEmbed = new EmbedBuilder()
                 .setColor('#ff00d0')
@@ -45,8 +45,8 @@ export default {
                 .setTimestamp();
             await interaction.reply({ embeds: [loveEmbed] });
         } catch (error) {
-            console.error(error)
-        }
+            console.error(error);
+        };
     },
 };
 
@@ -55,4 +55,4 @@ const loverates = {
     "277136155244232706": ["Dawn ? HMMMMMMMMMMMM", "https://media.discordapp.net/attachments/867491241491038209/1036987746809548860/AprilThinking.png"],//Ced
     "718456289704804392": ["MAMAN JTM <333", "https://media.discordapp.net/attachments/867491241491038209/1036987744670457907/april_cat.png"],
     "397867150867693579": ["Il a des bons gouts musicaux lui", "https://cdn.discordapp.com/attachments/867491241491038209/1036988529248567306/AprilMusic.png"]
-}
+};

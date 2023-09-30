@@ -128,7 +128,7 @@ export default {
 							value: `**Ouverts** : ${openticketqty}\n**Pris en charge** : ${takenticketsqty}`,
 							inline: true
 						}
-					)
+					);
 				await interaction.reply({
                     embeds:[embedSERVINFO],
                     ephemeral: false
@@ -206,11 +206,11 @@ export default {
 							value: `\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}\` MB`,
 							inline: true,
 						},
-					])
+					]);
                 await interaction.reply({
                     embeds: [embedBOTINFO],
                     ephemeral: false
-                })
+                });
                 break;
         }
     }
