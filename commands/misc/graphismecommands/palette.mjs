@@ -27,7 +27,7 @@ async function generateRandomPalette() {
         const saturation = Math.random() * 40 + 50; // Random saturation between 50% and 90%
         const brightness = Math.random() * 40 + 50; // Random brightness between 50% and 90%
     
-        const color = hslToHex(hue + i * (360 / numColors) , saturation} , brightness);
+        const color = hslToHex(hue + i * (360 / numColors) , saturation , brightness);
         palette.push(color);
     }
 
