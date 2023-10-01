@@ -1,4 +1,6 @@
 import { ActivityType }  from "discord.js";
+import config from '../config.json' assert { type: 'json' };
+
 export default {
 	name: 'ready',
 	once: true,
@@ -32,12 +34,16 @@ export default {
             setInterval(() => {
                 let Random = Math.floor(Math.random() * (status_list.length));
                 let Random2 = Math.floor(Math.random() * (profilepictures_list.length));
-                client.user.setActivity({
-                    type: ActivityType.Custom,
-                    name: "custom_status",
-                    state: status_list[Random]
-                });
-                client.user.setAvatar(profilepictures_list[Random2]);
+                if(config.cycleStatuses){
+                    client.user.setActivity({
+                        type: ActivityType.Custom,
+                        name: "custom_status",
+                        state: status_list[Random]
+                    });
+                }
+                if(config.cyclePfPs){
+                    client.user.setAvatar(profilepictures_list[Random2]);
+                }
             }, 300000);
     }
 }

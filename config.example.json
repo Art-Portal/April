@@ -12,5 +12,7 @@
         "username": "user",
         "password": "password"
     },
-    "errorWebhookURL": "https://discord.com/api/webhooks/123456789/aBcDeFgHiJkLmNoPqRsTuVwXyZ"
+    "errorWebhookURL": "https://discord.com/api/webhooks/123456789/aBcDeFgHiJkLmNoPqRsTuVwXyZ",
+    "cycleStatuses": true,
+    "cyclePfPs": true
 } 
