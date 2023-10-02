@@ -4,12 +4,8 @@ import { AttachmentBuilder }  from 'discord.js';
 export default {
     async execute(interaction){
         await interaction.deferReply();
-        const baseColor = interaction.options.getString('basecolor') || None;
 
-        let palette;
-        if(!baseColor || !/^#[0-9A-F]{6}$/i.test(baseColor)){
-            palette = await generateRandomPalette();
-        } else palette = await generateRandomPalette(baseColor);
+        palette = await generateRandomPalette();
         
         const imageBuffer = await createPaletteImage(palette);
     
@@ -20,18 +16,13 @@ export default {
 }
 
 // Fonction pour générer une palette de couleurs harmonieuses
-async function generateRandomPalette(forcedColor = None) {
+async function generateRandomPalette() {
     const numColors = Math.floor(Math.random() * 3) + 3; // Génère entre 3 et 5 couleurs
     const palette = [];
 
     // Générateur de couleurs harmonieuses (complémentaires)
 
-    let baseColor;
-    if(!forcedColor){
-        baseColor = Math.floor(Math.random() * 16777215); // Couleur de base aléatoire
-    } else {
-        baseColor = forcedColor
-    }
+    baseColor = Math.floor(Math.random() * 16777215); // Couleur de base aléatoire
     
     for (let i = 0; i < numColors; i++) {
         // Random variations in saturation and brightness
@@ -48,7 +39,7 @@ async function generateRandomPalette(forcedColor = None) {
 
 // Fonction pour créer une image représentant la palette de couleurs
 async function createPaletteImage(colors) {
-    const canvas = Canvas.createCanvas(colors.length * 40, 50);
+    const canvas = Canvas.createCanvas(200, 50);
     const ctx = canvas.getContext('2d');
 
     // Dessine les rectangles de couleur sur le canvas
