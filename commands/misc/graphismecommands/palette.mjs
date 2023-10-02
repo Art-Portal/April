@@ -1,6 +1,6 @@
 import Canvas  from "canvas";
 import { AttachmentBuilder }  from 'discord.js';
-t
+
 export default {
     async execute(interaction){
         await interaction.deferReply();
