@@ -36,7 +36,7 @@ async function generateRandomPalette() {
 
 // Fonction pour créer une image représentant la palette de couleurs
 async function createPaletteImage(colors) {
-    const canvas = Canvas.createCanvas(200, 50);
+    const canvas = Canvas.createCanvas(colors.length * 40, 50);
     const ctx = canvas.getContext('2d');
 
     // Dessine les rectangles de couleur sur le canvas
