@@ -21,6 +21,13 @@ export default {
             subcommand => subcommand
                 .setName('palette')
                 .setDescription('Une palette harmonieuse générée aléatoirement.')
+                .addStringOption(option => option
+                    .setName('basecolor')
+                    .setDescription('(FORMAT: #FFFFFF) Une couleur initiale sur laquelle sera formée la palette')
+                    .setRequired(false)
+                    .setMinLength(7)
+                    .setMaxLength(7)
+                )
         )
         .addSubcommand(
             subcommand => subcommand

@@ -4,7 +4,13 @@ import { AttachmentBuilder }  from 'discord.js';
 export default {
     async execute(interaction){
         await interaction.deferReply();
-        const palette = await generateRandomPalette();
+        const baseColor = interaction.options.getString('basecolor') || None;
+
+        let palette;
+        if(!baseColor || !/^#[0-9A-F]{6}$/i.test(baseColor)){
+            palette = await generateRandomPalette();
+        } else palette = await generateRandomPalette(baseColor);
+        
         const imageBuffer = await createPaletteImage(palette);
     
         // Envoie l'image dans le canal où la commande a été appelée
@@ -14,12 +20,18 @@ export default {
 }
 
 // Fonction pour générer une palette de couleurs harmonieuses
-async function generateRandomPalette() {
+async function generateRandomPalette(forcedColor = None) {
     const numColors = Math.floor(Math.random() * 3) + 3; // Génère entre 3 et 5 couleurs
     const palette = [];
 
     // Générateur de couleurs harmonieuses (complémentaires)
-    const baseColor = Math.floor(Math.random() * 16777215); // Couleur de base aléatoire
+
+    let baseColor;
+    if(forcedColor == None){
+        baseColor = Math.floor(Math.random() * 16777215); // Couleur de base aléatoire
+    } else {
+        baseColor = forcedColor
+    }
     
     for (let i = 0; i < numColors; i++) {
         // Random variations in saturation and brightness
