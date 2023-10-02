@@ -27,7 +27,7 @@ async function generateRandomPalette(forcedColor = None) {
     // Générateur de couleurs harmonieuses (complémentaires)
 
     let baseColor;
-    if(forcedColor == None){
+    if(!forcedColor){
         baseColor = Math.floor(Math.random() * 16777215); // Couleur de base aléatoire
     } else {
         baseColor = forcedColor
