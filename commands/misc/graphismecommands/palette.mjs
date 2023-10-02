@@ -5,7 +5,7 @@ export default {
     async execute(interaction){
         await interaction.deferReply();
 
-        palette = await generateRandomPalette();
+        const palette = await generateRandomPalette();
         
         const imageBuffer = await createPaletteImage(palette);
     
@@ -22,7 +22,7 @@ async function generateRandomPalette() {
 
     // Générateur de couleurs harmonieuses (complémentaires)
 
-    baseColor = Math.floor(Math.random() * 16777215); // Couleur de base aléatoire
+    const baseColor = Math.floor(Math.random() * 16777215); // Couleur de base aléatoire
     
     for (let i = 0; i < numColors; i++) {
         // Random variations in saturation and brightness
