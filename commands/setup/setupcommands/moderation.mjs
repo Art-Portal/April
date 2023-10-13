@@ -1,59 +1,66 @@
-import { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle }  from 'discord.js';
+import {
+    EmbedBuilder,
+    ActionRowBuilder,
+    ButtonBuilder,
+    ButtonStyle,
+} from "discord.js";
 
 export default {
     async execute(interaction, client) {
         await interaction.deferReply({ ephemeral: true });
-        const channel = interaction.options.getChannel('channel');
+        const channel = interaction.options.getChannel("channel");
 
-        switch(interaction.options.getString('type')){
-            case 'blacklist':
+        switch (interaction.options.getString("type")) {
+            case "blacklist":
                 await channel.send({
                     embeds: [
                         new EmbedBuilder()
                             .setAuthor({
-                                name: "Art'Portal"
+                                name: "Art'Portal",
                             })
                             .setTitle("Panel de blacklist")
-                            .setDescription("**Utilisez les boutons ci-dessous pour:**\n> ❌ - Ajouter un utilisateur à la blacklist\n> ✅ - Retirer un utilisateur de la blacklist\n> 🖨 - Afficher les informations de blacklist d'un utilisateur")
-                            .setColor(`#7961fd`)
+                            .setDescription(
+                                "**Utilisez les boutons ci-dessous pour:**\n> ❌ - Ajouter un utilisateur à la blacklist\n> ✅ - Retirer un utilisateur de la blacklist\n> 🖨 - Afficher les informations de blacklist d'un utilisateur",
+                            )
+                            .setColor(`#7961fd`),
                     ],
                     components: [
-                        new ActionRowBuilder()
-                            .addComponents([
-                                new ButtonBuilder()
-                                    .setCustomId("blacklist_add")
-                                    .setStyle(ButtonStyle.Danger)
-                                    .setEmoji("✖️"),
-                                new ButtonBuilder()
-                                    .setCustomId("blacklist_remove")
-                                    .setStyle(ButtonStyle.Success)
-                                    .setEmoji("✅"),
-                                new ButtonBuilder()
-                                    .setCustomId("blacklist_check")
-                                    .setStyle(ButtonStyle.Secondary)
-                                    .setEmoji("🖨")
-                            ])
-                        ]
-                    })
+                        new ActionRowBuilder().addComponents([
+                            new ButtonBuilder()
+                                .setCustomId("blacklist_add")
+                                .setStyle(ButtonStyle.Danger)
+                                .setEmoji("✖️"),
+                            new ButtonBuilder()
+                                .setCustomId("blacklist_remove")
+                                .setStyle(ButtonStyle.Success)
+                                .setEmoji("✅"),
+                            new ButtonBuilder()
+                                .setCustomId("blacklist_check")
+                                .setStyle(ButtonStyle.Secondary)
+                                .setEmoji("🖨"),
+                        ]),
+                    ],
+                });
                 await interaction.editReply({
                     content: "Le panel de blacklist a bien été envoyé !",
-                    ephemeral: true
+                    ephemeral: true,
                 });
                 break;
-            case 'sanctions':
+            case "sanctions":
                 await channel.send({
                     embeds: [
                         new EmbedBuilder()
                             .setAuthor({
-                                name: "Art'Portal"
+                                name: "Art'Portal",
                             })
                             .setTitle("Panel de moderation")
-                            .setDescription("Panel de modération destiné au staff !\nUtilisez les boutons ci-dessous pour appliquer diverses sanctions !")
-                            .setColor(`#7961fd`)
+                            .setDescription(
+                                "Panel de modération destiné au staff !\nUtilisez les boutons ci-dessous pour appliquer diverses sanctions !",
+                            )
+                            .setColor(`#7961fd`),
                     ],
                     components: [
-                        new ActionRowBuilder()
-                        .addComponents([
+                        new ActionRowBuilder().addComponents([
                             new ButtonBuilder()
                                 .setCustomId("modpanel_ban")
                                 .setLabel("Ban")
@@ -79,11 +86,14 @@ export default {
                                 .setLabel("Modlogs")
                                 .setStyle(ButtonStyle.Secondary)
                                 .setEmoji("🖨"),
-                        ])
-                    ]
-                })
-                await interaction.editReply({content: "Le panel de moderation a bien été envoyé !", ephemeral: true});
+                        ]),
+                    ],
+                });
+                await interaction.editReply({
+                    content: "Le panel de moderation a bien été envoyé !",
+                    ephemeral: true,
+                });
                 break;
         }
-    }
+    },
 };

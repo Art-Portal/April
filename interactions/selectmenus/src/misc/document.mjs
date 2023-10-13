@@ -1,14 +1,24 @@
-import { EmbedBuilder }  from 'discord.js';
+import { EmbedBuilder } from "discord.js";
 
 export default {
-    async execute(interaction){
-        await interaction.update({ embeds:[
-            new EmbedBuilder(interaction.message.embeds[0])
-                .setImage(images[interaction.customId][Number(interaction.values[0])])
-                .setFooter({ text: `Page ${Number(interaction.values[0])+1}/${images[interaction.customId].length}` })
-        ] })
-    }
-}
+    async execute(interaction) {
+        await interaction.update({
+            embeds: [
+                new EmbedBuilder(interaction.message.embeds[0])
+                    .setImage(
+                        images[interaction.customId][
+                            Number(interaction.values[0])
+                        ],
+                    )
+                    .setFooter({
+                        text: `Page ${Number(interaction.values[0]) + 1}/${
+                            images[interaction.customId].length
+                        }`,
+                    }),
+            ],
+        });
+    },
+};
 
 const images = {
     document_sanctions: [
@@ -18,8 +28,8 @@ const images = {
         "https://media.discordapp.net/attachments/867491241491038209/992161246424092765/Bareme_des_sanctions-4.png",
         "https://media.discordapp.net/attachments/867491241491038209/992161246646374580/Bareme_des_sanctions-5.png",
         "https://media.discordapp.net/attachments/867491241491038209/992161246914805831/Bareme_des_sanctions-6.png",
-        "https://media.discordapp.net/attachments/867491241491038209/992161247250370682/Bareme_des_sanctions-7.png"
-        ],
+        "https://media.discordapp.net/attachments/867491241491038209/992161247250370682/Bareme_des_sanctions-7.png",
+    ],
     document_albumphoto: [
         "https://media.discordapp.net/attachments/867491241491038209/970423539696009247/portalgirl-cool.png",
         "https://media.discordapp.net/attachments/867491241491038209/970423539981234267/portalgirl-couteau.webp",
@@ -30,6 +40,6 @@ const images = {
         "https://media.discordapp.net/attachments/867491241491038209/970423543189872690/portalgirl-triste.webp",
         "https://media.discordapp.net/attachments/867491241491038209/970423543626092604/portalgirl-wouah.webp",
         "https://media.discordapp.net/attachments/867491241491038209/987292546180984832/april-welcome.png",
-        "https://media.discordapp.net/attachments/867491241491038209/987466337095917568/AprilStyle-min.png"
-        ]
+        "https://media.discordapp.net/attachments/867491241491038209/987466337095917568/AprilStyle-min.png",
+    ],
 };
