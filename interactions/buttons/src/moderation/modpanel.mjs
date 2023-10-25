@@ -53,7 +53,7 @@ const modpanelModalList = {
                     .setCustomId("reason")
                     .setLabel("Raison du ban")
                     .setStyle(TextInputStyle.Paragraph)
-                    .setMinLength(10)
+                    .setMinLength(4)
                     .setMaxLength(1000)
                     .setPlaceholder("Ex: Insultes, Irrespect")
                     .setRequired(true),
@@ -79,7 +79,7 @@ const modpanelModalList = {
                     .setCustomId("reason")
                     .setLabel("Raison du kick")
                     .setStyle(TextInputStyle.Paragraph)
-                    .setMinLength(10)
+                    .setMinLength(4)
                     .setMaxLength(1000)
                     .setPlaceholder("Ex: Insultes, Irrespect")
                     .setRequired(true),
@@ -105,7 +105,7 @@ const modpanelModalList = {
                     .setCustomId("reason")
                     .setLabel("Raison du mute")
                     .setStyle(TextInputStyle.Paragraph)
-                    .setMinLength(10)
+                    .setMinLength(4)
                     .setMaxLength(1000)
                     .setPlaceholder("Ex: Spam")
                     .setRequired(true),
@@ -140,7 +140,7 @@ const modpanelModalList = {
                     .setCustomId("reason")
                     .setLabel("Raison du warn")
                     .setStyle(TextInputStyle.Paragraph)
-                    .setMinLength(10)
+                    .setMinLength(4)
                     .setMaxLength(1000)
                     .setPlaceholder("Ex: Spam")
                     .setRequired(true),
