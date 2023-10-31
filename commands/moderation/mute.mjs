@@ -100,5 +100,13 @@ export default {
             timestamp: Math.floor(new Date().getTime() / 1000),
             moderatorid: interaction.member.user.id,
         });
+        try {
+            if (member) {
+                await member.send({
+                    content: "Vous avez reçu une sanction sur Art'Portal !",
+                    embeds: [muteEMBED],
+                });
+            }
+        } catch (error) {}
     },
 };

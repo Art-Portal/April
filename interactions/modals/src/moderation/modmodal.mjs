@@ -9,6 +9,7 @@ export default {
         const user = await client.users.cache.get(userId);
         const member = await interaction.guild.members.cache.get(userId);
         let reason;
+        let dmEmbed;
         try {
             reason = interaction.fields.getTextInputValue("reason");
         } catch {}
@@ -74,6 +75,7 @@ export default {
                             inline: true,
                         },
                     );
+                dmEmbed = banEMBED;
                 await interaction.editReply({
                     embeds: [banEMBED],
                     ephemeral: true,
@@ -153,6 +155,7 @@ export default {
                             inline: true,
                         },
                     );
+                dmEmbed = kickEMBED;
                 await interaction.editReply({
                     embeds: [kickEMBED],
                     ephemeral: true,
@@ -236,6 +239,7 @@ export default {
                             inline: true,
                         },
                     );
+                dmEmbed = muteEMBED;
                 await interaction.editReply({
                     embeds: [muteEMBED],
                     ephemeral: true,
@@ -288,6 +292,7 @@ export default {
                             inline: true,
                         },
                     );
+                dmEmbed = warnEMBED;
                 await interaction.editReply({
                     embeds: [warnEMBED],
                     ephemeral: true,
@@ -344,5 +349,13 @@ export default {
                 });
                 break;
         }
+        try {
+            if (member) {
+                await member.send({
+                    content: "Vous avez reçu une sanction sur Art'Portal !",
+                    embeds: [dmEmbed],
+                });
+            }
+        } catch (error) {}
     },
 };
