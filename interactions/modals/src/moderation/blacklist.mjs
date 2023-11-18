@@ -63,6 +63,17 @@ export default {
                             components: message.components,
                         });
                     });
+                const member =
+                    await interaction.guild.members.cache.get(userId);
+                try {
+                    if (member) {
+                        await member.send({
+                            content:
+                                "Vous avez reçu une sanction sur Art'Portal !",
+                            embeds: [blacklistEMBED],
+                        });
+                    }
+                } catch (error) {}
                 break;
             case "blacklist_remove":
                 if (blacklistuser) {
