@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "bun-types": "latest",
-    "eslint": "^8.54.0"
+    "eslint": "^8.55.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
